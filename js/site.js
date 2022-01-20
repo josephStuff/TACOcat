@@ -3,24 +3,18 @@
 function getResults() {
   document.getElementById("alert").classList.add("d-none");
   let userString = document.getElementById("theInput").value;
-  let isPalindrome = checkForPalindrome(userString);
-  displayData(isPalindrome);
+  let returnObj = checkForPalindrome(userString);
+
+  displayData(returnObj);
 }
 
 // -------------------THIS GENERATES DATA -------------
 
-// function isPalindrome (userString) {
-//   let revString = "";
-
-//   for (let i = userString.length - 1; i >= 0; i--) {
-//     revString += userString[i];
-//   }
-
-//   return revString;
-// }
-
 function checkForPalindrome(userString) {
   userString = userString.toLowerCase();
+  let isPalindrome = false;
+  let returnObj = {};
+  
 
   let regex = /[^a-z0-9]/gi;
   userString = userString.replace(regex, "");
@@ -31,35 +25,35 @@ function checkForPalindrome(userString) {
   }
 
   if (revString !== userString) {
-    return false;
+    isPalindrome = false;
   } else {
-    return true;
+    isPalindrome = true;
   }
+
+  returnObj["isPalindrome"] = isPalindrome;
+  returnObj["revString"] = revString;
+
+  return true;
+
 }
 
 // ------------------------ DISPLAY THE REVERSED STRING TO PAGE --------
 
 function displayData(isPalindrome) {
-  // document.getElementById("alert").classList.remove("alert-success")
-  // document.getElementById("alert").classList.remove("alert-danger");
 
-  if (isPalindrome == true) {
-    document.getElementById(
-      "msg"
-    ).innerHTML = `Your string reversed is a Palindrome!`;
+  document.getElementById("alert").classList.add("alert-success")
+  document.getElementById("alert").classList.add("alert-danger");
+
+  if (returnObj(["isPalindrome"]) == true) {
+    document.getElementById("msg").innerHTML = `Your string reversed is a Palindrome!`;
     document.getElementById("alertHeader").innerHTML = "Well Done!";
-    document.getElementById("msg").innerHTML = `Your phrase is a Palendrome!`;
+    document.getElementById("msg").innerHTML = `Your phrase is a Palendrome!<br>Your reversed string is:${returnObj["revString"]}`;
   } else {
-    document.getElementById(
-      "msg"
-    ).innerHTML = `Your string reversed is NOT  a Palindrome!`;
+    document.getElementById("msg").innerHTML = `Your string reversed is NOT  a Palindrome!`;
     document.getElementById("alertHeader").innerHTML = "OH NO!";
-    document.getElementById(
-      "msg"
-    ).innerHTML = `Your string is NOT a Palindrome`;
+    document.getElementById("msg").innerHTML = `Your string is NOT a Palindrome<br>Your reversed string is:${returnObj["revString"]};`;
   }
 
-  //   document.getElementById("msg").innerHTML = `Your string reversed is: ${revString}`;
 
   document.getElementById("alert").classList.remove("d-none");
 }
