@@ -39,7 +39,7 @@ function checkForPalindrome(userString) {
 
 // ------------------------ DISPLAY THE REVERSED STRING TO PAGE --------
 
-function displayData(isPalindrome) {
+function displayData(returnObj) {
 
   document.getElementById("alert").classList.add("alert-success")
   document.getElementById("alert").classList.add("alert-danger");
