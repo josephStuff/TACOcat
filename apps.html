@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>APP NAME: A JS PROJECT</title>
+    <title>TACO CAT: A JS PROJECT</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,7 +26,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
             <img src="img/MspectreMark.svg" height="24" class="d-inline-block align-text-top"/>
-            APP NAME
+            TACO CAT
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,14 +53,32 @@
 
     <main class="flex-shrink-0">
        <div class="container mt-5">
-           <div>   
-                <h1>APP UI WILL GO HERE</h1>
-                <input id="message" placeholder="Enter A message"></input>
-                <div class="p-2">
-                    <button id="btnSubmit" class="btn btn-primary">Display Message</button>
+           <form class="row">
+                <div class="col">
+                    <!-- --------- INSTRUCTIONS--------- -->
+                    <h2>OH NO! IT'S THE DREADED TACO cat!</h2>
+                    <h4 class="lead">This project is to verify if the input is a palandrome or not.  Thanks for playing!</h4>
                 </div>
-            </div>
+                <div class="col">   
+                        <!-- ----------MAIN APP UI---- -->
+                    <h2>IS IT A Palindrome?  Enter Below...</h2>
+                    <form class="row g-2">
+                        <div class="col">
+                            <input id="theInput" placeholder="Enter here" class="form-control" type="text"></input>
+                        </div>
+                        <div class="col-12 d-flex justify-content-start justify-content-md-end mt-2">
+                            <button id="thisButton" type="button" class="btn btn-primary">click this</button>
+                        </div>
+                    </form>
+                    <div class="alert mt-5 d-none fade show" id="alert" role="alert">
+                        <h4 id="alertHeader" class="alert-heading">You Did It!</h4>
+                        <p class="mb-0" id="msg">
+                            <!-- ----CONTENT GOES HERE -->
 
+                        </p>
+                    </div>
+                </div>
+            </form>
         </div>
     </main>
     <footer class="footer mt-auto py-3 sticky-footer">
@@ -111,7 +129,7 @@
     <script src="js/site.js"></script>
 
     <script>
-        document.getElementById("btnSubmit").addEventListener("click", getMessage);
+        document.getElementById("thisButton").addEventListener("click", getResults);
     </script>
 
 
