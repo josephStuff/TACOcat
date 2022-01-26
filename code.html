@@ -3,15 +3,15 @@
 
 <head>
     <title>TACO CAT: A JS PROJECT</title>
-    <!-- Required meta tags -->
+    <!------------------------------------- Required meta tags ----------------------------------------->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
+    <!------------------------------ Bootstrap CSS ----------------------------->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-   <!-- Convert this to an external style sheet -->
+   <!-------------------------------- Convert this to an external style sheet ------------------------->
 
     <link href="css/site.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/favicon-32x32.png" />
@@ -51,7 +51,7 @@
     </div>
 </nav>
 
-<!-- --------------------MAAIN SECTION -->
+<!-- ---------------------------------------- MAIN SECTION --------------------------------------->
 
     <main class="flex-shrink-0">
         <div class="container">
@@ -61,23 +61,76 @@
                     <pre class="line-numbers">
                         <code class="language-js">
                             
-<!-- Controller Function -->
-function getMessage() {
-    let userMessage = document.getElementById("message").value;
-    Swal.fire(
-        'Button clicked!',
-        userMessage,
-        "success"
-    );
-    console.log(userMessage);
+<!------------------------------------------- Controller Function ------------------------------->
+
+// ----------PULL USER INPUT----------
+
+function getResults() {
+  document.getElementById("alert").classList.add("d-none");
+  let userString = document.getElementById("theInput").value;
+  let returnObj = checkForPalindrome(userString);
+
+  displayData(returnObj);
+}
+
+// -------------------THIS GENERATES DATA -------------
+
+function checkForPalindrome(userString) {
+  userString = userString.toLowerCase();
+  let isPalindrome = false;
+  let returnObj = {};
+  
+
+  let regex = /[^a-z0-9]/gi;
+  userString = userString.replace(regex, "");
+
+  let revString = "";
+  for (let index = userString.length - 1; index >= 0; index--) {
+    revString += userString[index];
+  }
+
+  if (revString !== userString) {
+    isPalindrome = false;
+  } else {
+    isPalindrome = true;
+  }
+
+  returnObj["isPalindrome"] = isPalindrome;
+  returnObj["revString"] = revString;
+
+  return true;
+
+}
+
+// ------------------------ DISPLAY THE REVERSED STRING TO PAGE --------
+
+function displayData(returnObj) {
+
+  document.getElementById("alert").classList.add("alert-success")
+  document.getElementById("alert").classList.add("alert-danger");
+
+  if (returnObj["isPalindrome"] == false) {
+    document.getElementById("msg").innerHTML = `Your string reversed is a Palindrome!`;
+    document.getElementById("alertHeader").innerHTML = "Well Done!";
+    document.getElementById("msg").innerHTML = `Your phrase is a Palendrome!<br>Your reversed string is:${returnObj["revString"]}`;
+  } else {
+    document.getElementById("msg").innerHTML = `Your string reversed is NOT  a Palindrome!`;
+    document.getElementById("alertHeader").innerHTML = "OH NO!";
+    document.getElementById("msg").innerHTML = `Your string is NOT a Palindrome<br>Your reversed string is:${returnObj["revString"]};`;
+  }
+
+
+  document.getElementById("alert").classList.remove("d-none");
+}
+
 }
                         </code>
                     </pre>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <p>I think this is placeholder text?  maybe?</p>
-                    <h3>getMessage</h3>
-                    <p>this is the user's message that is printed</p>
+                    <p>This is all the Javascript for this App</p>
+                    <h3>Made with PRISM JS</h3>
+                    <p>Let me know what you think...</p>
                 </div>
             </div>
 
