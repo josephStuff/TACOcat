@@ -4,7 +4,7 @@
 // ----------PULL USER INPUT----------
 
 function getResults() {
-  document.getElementById("alert").classList.add("d-none");
+  // document.getElementById("alert").classList.add("d-none");
   let userString = document.getElementById("theInput").value;
   let returnObj = checkForPalindrome(userString);
 
@@ -36,7 +36,7 @@ function checkForPalindrome(userString) {
   returnObj["isPalindrome"] = isPalindrome;
   returnObj["revString"] = revString;
 
-  return true;
+  return returnObj;
 
 }
 
@@ -49,16 +49,17 @@ function displayData(returnObj) {
   if (returnObj["isPalindrome"] == true) {
     document.getElementById("msg").innerHTML = `Your string reversed is a Palindrome!`;
     document.getElementById("alertHeader").innerHTML = "Well Done!";
-    document.getElementById("msg").innerHTML = `Your phrase is a Palendrome!<br>Your reversed string is:${returnObj["revString"]}`;
+    document.getElementById("msg").innerHTML = `Your phrase is a Palendrome!<br>Your reversed string is: ${returnObj["revString"]}`;
     document.getElementById("alert").classList.add("alert-success")
 
   } else {
-    // document.getElementById("msg").innerHTML = `Your string reversed is NOT  a Palindrome!`;
-    // document.getElementById("alertHeader").innerHTML = "OH NO!";
-    // document.getElementById("msg").innerHTML = `Your string is NOT a Palindrome<br>Your reversed string is:${returnObj["revString"]};`;
-    // document.getElementById("alert").classList.add("alert-danger");
+    document.getElementById("msg").innerHTML = `Your string reversed is NOT a Palindrome!`;
+    document.getElementById("alertHeader").innerHTML = "OH NO!";
+    document.getElementById("msg").innerHTML = `Your string is NOT a Palindrome!<br>Your reversed string is: ${returnObj["revString"]}`;
+    document.getElementById("alert").classList.add("alert-danger");
   }
 
 
-  document.getElementById("alert").classList.remove("d-none");
+  document.getElementById("alert")   //.classList.remove("d-none");
+
 }
