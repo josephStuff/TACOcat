@@ -44,7 +44,8 @@ function checkForPalindrome(userString) {
 
 function displayData(returnObj) {
 
-  
+  document.getElementById("alert").classList.remove("alert-success");
+  document.getElementById("alert").classList.remove("alert-danger");
 
   if (returnObj["isPalindrome"] == false) {
     document.getElementById("msg").innerHTML = `Your string reversed is NOT a Palindrome!`;
