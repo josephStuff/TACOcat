@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>TACO CAT: A JS PROJECT</title>
+    <title>TACO CAT:PROJECT</title>
     <!------------------------------------- Required meta tags ----------------------------------------->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,8 +14,8 @@
    <!-------------------------------- Convert this to an external style sheet ------------------------->
 
     <link href="css/site.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/favicon-32x32.png" />
-    
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" />
+    <link rel="stylesheet" href="/css/prism.css" />
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
 </head>
@@ -63,6 +63,8 @@
                             
 <!------------------------------------------- Controller Function ------------------------------->
 
+
+
 // ----------PULL USER INPUT----------
 
 function getResults() {
@@ -106,19 +108,19 @@ function checkForPalindrome(userString) {
 
 function displayData(returnObj) {
 
-  
+  document.getElementById("alert").classList.remove("alert-success");
+  document.getElementById("alert").classList.remove("alert-danger");
 
-  if (returnObj["isPalindrome"] == true) {
-    document.getElementById("msg").innerHTML = `Your string reversed is a Palindrome!`;
-    document.getElementById("alertHeader").innerHTML = "Well Done!";
-    document.getElementById("msg").innerHTML = `Your phrase is a Palendrome!<br>Your reversed string is: ${returnObj["revString"]}`;
-    document.getElementById("alert").classList.add("alert-success")
-
-  } else {
+  if (returnObj["isPalindrome"] == false) {
     document.getElementById("msg").innerHTML = `Your string reversed is NOT a Palindrome!`;
     document.getElementById("alertHeader").innerHTML = "OH NO!";
     document.getElementById("msg").innerHTML = `Your string is NOT a Palindrome!<br>Your reversed string is: ${returnObj["revString"]}`;
     document.getElementById("alert").classList.add("alert-danger");
+  } else {
+    document.getElementById("msg").innerHTML = `Your string reversed is a Palindrome!`;
+    document.getElementById("alertHeader").innerHTML = "Well Done!";
+    document.getElementById("msg").innerHTML = `Your phrase is a Palindrome!<br>Your reversed string is: ${returnObj["revString"]}`;
+    document.getElementById("alert").classList.add("alert-success");
   }
 
 
@@ -139,7 +141,7 @@ function displayData(returnObj) {
     </main>
 
 
-    <!-- -------------------FOOTER------- -->
+    <!-- ------------------------------------- FOOTER SECTION ------------------------- -->
     <footer class="footer mt-auto py-3 sticky-footer">
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-3 gy-2">
@@ -149,7 +151,7 @@ function displayData(returnObj) {
                     </div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
-                   <span>Built Back Better, Joe W.</span> <!-- <img src="img/OrangeWhiteMark.svg" /> -->
+                   <span>Built Back Better, Joe W.</span>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">
