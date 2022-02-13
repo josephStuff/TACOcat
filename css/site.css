@@ -3,8 +3,9 @@
 :root {
     --jw-dark-color: #212121;
     --jw-light-color: #ece7e7;
-    --jw-primary-color: #001ef3;
+    --jw-primary-color: #2681f8;
     --jw-secondary-color: #ff993b;
+    --jw-purple-color: purple;
 }
 
 main>.container {
@@ -43,28 +44,28 @@ main>.container {
 /* --------------------------BUTTON STYLES OVERRIDE BOOTSTRAP STYLES---------------- */
 .btn-outline-primary {
     color: var(--jw-primary-color);
-    border-color: var(--jw-secondary-color) !important;
+    border-color: var(--jw-secondary-color);
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary:active,
 .btn-outline-primary:focus {
-    border-color: var(--jw-primary-color) !important;
+    border-color: var(--jw-primary-color);
     background-color: var(--jw-secondary-color);
 }
 
-.btn-primary {
-    color: white !important;
-    background-color: var(--jw-secondary-color);
-    border-color: var(--jw-secondary-color);
+.btn-berry {
+    color: white;                   /*  this is the color of the text in the button */
+    background-color: var(--jw-purple-color);
+    border-color: var(--jw-purple-color);
 }
 
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:visited,
 .btn-primary:focus {
-    filter: brightness(1.1) !important;
-    border-color: var(--jw-secondary-color);
+    filter: brightness(1.1);
+    border-color: var(--jw-primary-color);
 
 }
 
@@ -84,12 +85,12 @@ main>.container {
 }
 
 footer .social>a {
-    color: var(--jw-light-color);
-    opacity: .75;
+    color: var(--jw-primary-color);
+    opacity: .50;
 
 }
 
 footer .social>a:hover {
-    color: var(--jw-secondary-color);
-    opacity: .90;
+    color: var(--jw-primary-color);
+    opacity: 1;
 }
